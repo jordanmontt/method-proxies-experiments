@@ -18,6 +18,12 @@ MpExAllocationCounterProfiler >> initialize [
 ]
 
 { #category : 'profiling' }
+MpExAllocationCounterProfiler >> internalRegisterAllocation: anObject [
+
+	
+]
+
+{ #category : 'profiling' }
 MpExAllocationCounterProfiler >> registerAllocation: anObject [
 
 	allocationCounter := allocationCounter + 1

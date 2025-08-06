@@ -18,6 +18,12 @@ MpExAllocationCallGraphProfiler >> initialize [
 ]
 
 { #category : 'profiling' }
+MpExAllocationCallGraphProfiler >> internalRegisterAllocation: anObject [
+
+	
+]
+
+{ #category : 'profiling' }
 MpExAllocationCallGraphProfiler >> registerAllocation: newlyAllocatedObject [
 
 
@@ -48,6 +54,6 @@ MpExAllocationCallGraphProfiler >> registerAllocation: newlyAllocatedObject [
 		i := i + 2.
 		filteredContext := filteredContext sender ].
 
-	allocationStacks := thisAllocationStack.
+	allocationStacks add: thisAllocationStack.
 
 ]
