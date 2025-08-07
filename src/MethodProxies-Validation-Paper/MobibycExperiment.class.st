@@ -29,11 +29,11 @@ MobibycExperiment >> useAllocationRateProfiler [
 { #category : 'running' }
 MobibycExperiment >> useCallGraphProfiler [
 
-	profilerClass := CallGraphProfiler new
+	profilerClass := MethodCallGraphProfiler new
 ]
 
 { #category : 'running' }
 MobibycExperiment >> useNoActionProfiler [
 
-	profilerClass := CallGraphProfiler new instrumentator: MpCallGraphInstrumentatorNoAction new
+	profilerClass := MethodCallGraphProfiler new instrumentator: MCGMpInstrumentatorNoAction new
 ]
