@@ -26,9 +26,21 @@ Bencher >> benchExecution [
 It does not take into account the time for instumenting nor uninstrumenting"
 
 	| timeToRun |
-	profiler instrument.
+	profiler startProfiling.
 	timeToRun := [ blockToProfile value ] timeToRun.
-	profiler uninstrument.
+	profiler stopProfiling.
+	^ self formatTime: timeToRun
+]
+
+{ #category : 'api - execution' }
+Bencher >> benchExecutionNoSafe [
+	"Returns the time that it takes to execute the bench with the instrumentation.
+It does not take into account the time for instumenting nor uninstrumenting"
+
+	| timeToRun |
+	profiler startProfilingNoSafe.
+	timeToRun := [ blockToProfile value ] timeToRun.
+	profiler stopProfiling.
 	^ self formatTime: timeToRun
 ]
 
