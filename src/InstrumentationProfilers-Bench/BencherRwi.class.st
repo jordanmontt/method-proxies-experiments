@@ -7,13 +7,6 @@ Class {
 }
 
 { #category : 'api - profiler' }
-BencherRwi >> useAllocationCallGraphProfiler [
-
-	profiler := IllAllocationCallGraphProfiler new.
-	profiler instrumentator: (RwiIllProfilerInstrumentator onProfiler: profiler)
-]
-
-{ #category : 'api - profiler' }
 BencherRwi >> useAllocationRateProfiler [
 
 	profiler := IllAllocationRateProfiler new.
@@ -21,21 +14,21 @@ BencherRwi >> useAllocationRateProfiler [
 ]
 
 { #category : 'api - profiler' }
-BencherRwi >> useMethodCallGraphProfiler [
+BencherRwi >> useMethodCounterProfiler [
 
-	profiler := MethodCallGraphProfiler new.
-	profiler
-		instrumentator: (RwiMethodCallGraphInstrumentator onProfiler: profiler);
-		methodsToInstrument: methodsToInstrument
+    profiler := MethodCounterProfiler new.
+    profiler
+        instrumentator: (RwiMethodCounterInstrumentator onProfiler: profiler);
+        methodsToInstrument: methodsToInstrument
 ]
 
 { #category : 'api - profiler' }
 BencherRwi >> useNoActionAllMethodsProfiler [
 
-	profiler := MethodCallGraphProfiler new.
-	profiler
-		instrumentator:( RwiNoActionAllMethodsInstrumentator onProfiler: profiler);
-		methodsToInstrument: methodsToInstrument
+    profiler := MethodCounterProfiler new.
+    profiler
+        instrumentator: (RwiNoActionAllMethodsInstrumentator onProfiler: profiler);
+        methodsToInstrument: methodsToInstrument
 ]
 
 { #category : 'api - profiler' }

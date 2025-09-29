@@ -7,35 +7,29 @@ Class {
 }
 
 { #category : 'api - profiler' }
-BencherMp >> useAllocationCallGraphProfiler [
-
-	profiler := IllAllocationCallGraphProfiler new
-]
-
-{ #category : 'api - profiler' }
 BencherMp >> useAllocationRateProfiler [
 
-	profiler := IllAllocationRateProfiler new
+    profiler := IllAllocationRateProfiler new
 ]
 
 { #category : 'api - profiler' }
-BencherMp >> useMethodCallGraphProfiler [
+BencherMp >> useMethodCounterProfiler [
 
-	profiler := MethodCallGraphProfiler new
-		methodsToInstrument: methodsToInstrument;
-		yourself
+    profiler := MethodCounterProfiler new
+                    methodsToInstrument: methodsToInstrument;
+                    yourself
 ]
 
 { #category : 'api - profiler' }
 BencherMp >> useNoActionAllMethodsProfiler [
 
-	profiler := MethodCallGraphProfiler new.
-	profiler instrumentator: (MCGMpInstrumentatorNoAction onProfiler: profiler).
-	profiler methodsToInstrument: methodsToInstrument
+    profiler := MethodCounterProfiler new.
+    profiler instrumentator: (MCGMpInstrumentatorNoAction onProfiler: profiler).
+    profiler methodsToInstrument: methodsToInstrument
 ]
 
 { #category : 'api - profiler' }
 BencherMp >> useNoActionAllocatorMethodsProfiler [
 
-	profiler := IllNoActionProfiler new
+    profiler := IllNoActionProfiler new
 ]

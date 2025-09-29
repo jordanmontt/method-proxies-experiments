@@ -77,7 +77,7 @@ GraphCallerTest >> setUp [
 	mpProfiler := MethodCallGraphProfiler new.
 
 	rwiProfiler := MethodCallGraphProfiler new.
-	rwiProfiler instrumentator: (RwiMethodCallGraphInstrumentator onProfiler: rwiProfiler)
+	rwiProfiler instrumentator: (RwiMethodCounterInstrumentator onProfiler: rwiProfiler)
 ]
 
 { #category : 'tests' }

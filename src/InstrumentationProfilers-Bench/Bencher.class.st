@@ -76,12 +76,6 @@ Bencher >> initialize [
 ]
 
 { #category : 'api - profiler' }
-Bencher >> useAllocationCallGraphProfiler [
-
-	self subclassResponsibility
-]
-
-{ #category : 'api - profiler' }
 Bencher >> useAllocationRateProfiler [
 
 	self subclassResponsibility
@@ -109,7 +103,7 @@ Bencher >> useHoneyGingerBench [
 ]
 
 { #category : 'api - profiler' }
-Bencher >> useMethodCallGraphProfiler [
+Bencher >> useMethodCounterProfiler [
 
 	self subclassResponsibility
 ]
