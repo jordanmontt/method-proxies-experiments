@@ -9,9 +9,9 @@ Class {
 	#instVars : [
 		'profiler'
 	],
-	#category : 'InstrumentationProfilers-RWI',
+	#category : 'InstrumentationProfilers-RWI-Handlers',
 	#package : 'InstrumentationProfilers',
-	#tag : 'RWI'
+	#tag : 'RWI-Handlers'
 }
 
 { #category : 'evaluating' }

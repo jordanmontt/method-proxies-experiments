@@ -35,5 +35,5 @@ BencherRwi >> useNoActionAllMethodsProfiler [
 BencherRwi >> useNoActionAllocatorMethodsProfiler [
 
     profiler := IllNoActionProfiler new.
-    profiler instrumentator: (RwiIllProfilerInstrumentatorNoAction onProfiler: profiler)
+    profiler instrumentator: (RwiIllProfilerNoActionInstrumentator onProfiler: profiler)
 ]

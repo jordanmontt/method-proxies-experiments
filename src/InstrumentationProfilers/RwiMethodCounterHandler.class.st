@@ -5,9 +5,9 @@ Class {
 		'profiler',
 		'method'
 	],
-	#category : 'InstrumentationProfilers-RWI',
+	#category : 'InstrumentationProfilers-RWI-Handlers',
 	#package : 'InstrumentationProfilers',
-	#tag : 'RWI'
+	#tag : 'RWI-Handlers'
 }
 
 { #category : 'instance creation' }
