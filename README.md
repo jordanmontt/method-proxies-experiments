@@ -1,15 +1,17 @@
-# pharo-instrumentation
+# MethodProxies Performance and Safery Experiments
+
+
 Instrumentation profilers built with different instrumentation techniques for Pharo
 
-This repository contains the code for executing the experimental setup of the MethodProxies paper. For more information, refer to the MethodProxies paper.
+This repository contains the code for executing the experiments for the journal paper of MethodProxies. The experiments are designed to evaluate MethodProxies's performance and safety.
 
-To install it, run the following script in a Pharo 13 image:
+To install it, run the following script in a Pharo 14 image:
 
 ```st
 EpMonitor disableDuring: [
 	Metacello new
 		baseline: 'InstrumentationProfilers';
-		repository: 'github://jordanmontt/pharo-instrumentation:main';
+		repository: 'github://jordanmontt/method-proxies-experiments:main';
 		load ].
 ```
 
@@ -49,7 +51,6 @@ bencher
 ```
 
 Below you will find an extensive list with all the benchmarks, analysis tools, and instrumentation techniques and how to use them.
-
 
 ## Available benchmarks
 
