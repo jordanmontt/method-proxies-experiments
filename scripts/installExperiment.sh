@@ -6,7 +6,7 @@ PHARO_CMD="$BASE_DIR/pharo"
 # Functions
 install_instrumentation() {
   local image_path="$1"
-  "$PHARO_CMD" --headless "$image_path" metacello install "github://jordanmontt/method-proxies-experiments:main" BaselineOfInstrumentationProfilers
+  "$PHARO_CMD" --headless "$image_path" metacello install "github://jordanmontt/method-proxies-experiments:main" InstrumentationProfilers
 
   echo; echo; echo
   echo "Installed instrumentation for image $image_path"
