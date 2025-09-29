@@ -1,4 +1,4 @@
-# MethodProxies Performance and Safery Experiments
+# MethodProxies Performance and Safety Experiments
 
 
 Instrumentation profilers built with different instrumentation techniques for Pharo
