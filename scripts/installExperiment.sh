@@ -64,7 +64,7 @@ install_instrumentation ./moose/moose.image
 install_veritas_for ./moose/moose.image VeritasMoose
 
 # move tiny_dataset.csv to the root of df/
-mv ./df/pharo-local/iceberg/jordanmontt/PharoVeritasBenchSuite/files/sbscl.json ./moose/
+mv ./moose/pharo-local/iceberg/jordanmontt/PharoVeritasBenchSuite/files/sbscl.json ./moose/
 echo; echo; echo
 echo "moose model copied"
 
