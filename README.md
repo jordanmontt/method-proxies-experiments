@@ -15,6 +15,11 @@ EpMonitor disableDuring: [
 		load ].
 ```
 
+```bash
+nohup bash runRebenchFiles.sh > log.log 2>&1 &
+```
+
+
 ## Executing the benchmarks
 
 There are three objects
