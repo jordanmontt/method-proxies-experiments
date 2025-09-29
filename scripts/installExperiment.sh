@@ -47,7 +47,7 @@ cp "$BASE_DIR"/*.sources ./cormas/
 
 # install dependencies
 install_instrumentation ./cormas/cormas.image
-install_veritas_for ./cormas/cormas.image BaselineOfVeritasCormas
+install_veritas_for ./cormas/cormas.image VeritasCormas
 
 ############
 # HoneyGinger
@@ -59,7 +59,7 @@ cp "$BASE_DIR"/*.sources ./hg/
 
 # install dependencies
 install_instrumentation ./hg/hg.image
-install_veritas_for ./hg/hg.image BaselineOfVeritasHoneyGinger
+install_veritas_for ./hg/hg.image VeritasHoneyGinger
 
 ############
 # Microdown
@@ -71,7 +71,7 @@ cp "$BASE_DIR"/*.sources ./micro/
 
 # install dependencies
 install_instrumentation ./micro/micro.image
-install_veritas_for ./micro/micro.image BaselineOfVeritasMicrodown
+install_veritas_for ./micro/micro.image VeritasMicrodown
 
 # download Spec2 book
 TMP_CLONE_DIR=$(mktemp -d)
@@ -91,7 +91,7 @@ cp "$BASE_DIR"/*.sources ./df/
 
 # install dependencies
 install_instrumentation ./df/df.image
-install_veritas_for ./df/df.image BaselineOfVeritasDataFrame
+install_veritas_for ./df/df.image VeritasDataFrame
 
 # move tiny_dataset.csv to the root of df/
 mv ./df/pharo-local/iceberg/jordanmontt/PharoVeritasBenchSuite/src/Veritas-DataFrame/tiny_dataset.csv ./df/
