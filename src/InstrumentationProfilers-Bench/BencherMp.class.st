@@ -19,21 +19,21 @@ BencherMp >> useAllocationRateProfiler [
     profiler := IllAllocationRateProfiler new
 ]
 
+{ #category : 'api - profiler no safe' }
+BencherMp >> useMethodCounterNoSafeProfiler [
+
+    profiler := MethodCounterProfiler new.
+    profiler
+        instrumentator: (MethodCounterNoSafeInstrumentator onProfiler: profiler);
+        methodsToInstrument: methodsToInstrument
+]
+
 { #category : 'api - profiler' }
 BencherMp >> useMethodCounterProfiler [
 
     profiler := MethodCounterProfiler new
                     methodsToInstrument: methodsToInstrument;
                     yourself
-]
-
-{ #category : 'api - profiler no safe' }
-BencherMp >> useMethodCounterProfilerNoSafe [
-
-    profiler := MethodCounterProfiler new.
-    profiler
-        instrumentator: (MethodCounterNoSafeInstrumentator onProfiler: profiler);
-        methodsToInstrument: methodsToInstrument
 ]
 
 { #category : 'api - profiler no safe' }
