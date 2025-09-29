@@ -37,6 +37,7 @@ setup_base_image() {
 # Download baseimage
 setup_base_image
 
+
 ############
 # Cormas
 mkdir -p cormas
@@ -49,17 +50,24 @@ cp "$BASE_DIR"/*.sources ./cormas/
 install_instrumentation ./cormas/cormas.image
 install_veritas_for ./cormas/cormas.image VeritasCormas
 
+
 ############
-# HoneyGinger
-mkdir -p hg
+# Moose
+mkdir -p moose
 
 # save image and copy sources file
-"$PHARO_CMD" --headless "$BASE_IMAGE_FILE" save ../hg/hg
-cp "$BASE_DIR"/*.sources ./hg/
+"$PHARO_CMD" --headless "$BASE_IMAGE_FILE" save ../moose/moose
+cp "$BASE_DIR"/*.sources ./moose/
 
 # install dependencies
-install_instrumentation ./hg/hg.image
-install_veritas_for ./hg/hg.image VeritasHoneyGinger
+install_instrumentation ./moose/moose.image
+install_veritas_for ./moose/moose.image VeritasMoose
+
+# move tiny_dataset.csv to the root of df/
+mv ./df/pharo-local/iceberg/jordanmontt/PharoVeritasBenchSuite/src/Veritas-Moose/sbscl.json ./moose/
+echo; echo; echo
+echo "moose model copied"
+
 
 ############
 # Microdown
