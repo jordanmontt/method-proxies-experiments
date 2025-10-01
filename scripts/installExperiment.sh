@@ -6,7 +6,7 @@ PHARO_CMD="$BASE_DIR/pharo"
 # Functions
 install_instrumentation() {
   local image_path="$1"
-  "$PHARO_CMD" --headless "$image_path "metacello --save install "github://jordanmontt/method-proxies-experiments:main" MpPerformanceExperiment
+  "$PHARO_CMD" --headless "$image_path" metacello install --save "github://jordanmontt/method-proxies-experiments:main" MpPerformanceExperiment
 
   echo; echo; echo
   echo "Installed instrumentation for image $image_path"
@@ -15,7 +15,7 @@ install_instrumentation() {
 install_veritas_for() {
   local image_path="$1"
   local veritas_bench="$2"
-  "$PHARO_CMD" --headless "$image_path" metacello --save install "github://jordanmontt/PharoVeritasBenchSuite:main" "$veritas_bench"
+  "$PHARO_CMD" --headless "$image_path" metacello install --save "github://jordanmontt/PharoVeritasBenchSuite:main" "$veritas_bench"
 
 
   echo; echo; echo
