@@ -1,19 +1,19 @@
 Class {
-	#name : 'BaselineOfInstrumentationProfilers',
+	#name : 'BaselineOfMpPerformanceExperiment',
 	#superclass : 'BaselineOf',
-	#category : 'BaselineOfInstrumentationProfilers',
-	#package : 'BaselineOfInstrumentationProfilers'
+	#category : 'BaselineOfMpPerformanceExperiment',
+	#package : 'BaselineOfMpPerformanceExperiment'
 }
 
 { #category : 'baselines' }
-BaselineOfInstrumentationProfilers >> baseline: spec [
+BaselineOfMpPerformanceExperiment >> baseline: spec [
 
 	<baseline>
 	spec for: #common do: [
 		spec
-			package: 'InstrumentationProfilers';
-			package: 'InstrumentationProfilers-Bench' with: [ spec requires: #('InstrumentationProfilers') ];
-			package: 'InstrumentationProfilers-Tests' with: [ spec requires: #( 'InstrumentationProfilers' ) ].
+			package: 'MpPerfEx-InstrumentationProfilers';
+			package: 'MpPerfEx-Bencher' with: [ spec requires: #('MpPerfEx-InstrumentationProfilers') ];
+			package: 'MpPerfEx-Tests' with: [ spec requires: #( 'MpPerfEx-InstrumentationProfilers' ) ].
 
 		spec baseline: 'MethodProxies' with: [ spec repository: 'github://pharo-contributions/MethodProxies/src' ].
 		spec baseline: 'MethodCallGraph' with: [ spec repository: 'github://jordanmontt/MethodCallGraph:main' ].
@@ -26,6 +26,6 @@ BaselineOfInstrumentationProfilers >> baseline: spec [
 
 		spec
 			group: 'default' with: #( 'core' 'tests' );
-			group: 'core' with: #( 'InstrumentationProfilers' 'InstrumentationProfilers-Bench' );
-			group: 'tests' with: #( 'InstrumentationProfilers-Tests' ) ]
+			group: 'core' with: #( 'MpPerfEx-InstrumentationProfilers' 'MpPerfEx-Bench' );
+			group: 'tests' with: #( 'MpPerfEx-Tests' ) ]
 ]
