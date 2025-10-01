@@ -17,6 +17,8 @@ EpMonitor disableDuring: [
 
 ```bash
 nohup bash runRebenchFiles.sh > log.log 2>&1 &
+
+|repo| repo := IceRepository registry detect: [ :each | each name = 'method-proxies-experiments' ]. [ repo pull ] on: IceExperimentalFeature do: [ :ex | ex resume ]. repo loadedPackages do: [ :pkg | [ pkg reload ] on: MCMergeOrLoadWarning do: [ :ex | ex load]. ]. Smalltalk snapshot: true andQuit: true
 ```
 
 
