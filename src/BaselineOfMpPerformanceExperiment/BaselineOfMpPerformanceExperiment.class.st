@@ -26,6 +26,6 @@ BaselineOfMpPerformanceExperiment >> baseline: spec [
 
 		spec
 			group: 'default' with: #( 'core' 'tests' );
-			group: 'core' with: #( 'MpPerfEx-InstrumentationProfilers' 'MpPerfEx-Bench' );
+			group: 'core' with: #( 'MpPerfEx-InstrumentationProfilers' 'MpPerfEx-Bencher' );
 			group: 'tests' with: #( 'MpPerfEx-Tests' ) ]
 ]
