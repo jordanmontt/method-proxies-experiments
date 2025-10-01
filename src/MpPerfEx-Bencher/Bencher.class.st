@@ -107,13 +107,6 @@ Bencher >> useDataFrameBench [
 	blockToProfile := [ VeritasDataFrame new run ]
 ]
 
-{ #category : 'api - benchmarks' }
-Bencher >> useHoneyGingerBench [
-
-	methodsToInstrument := VeritasHoneyGinger applicationMethods.
-	blockToProfile := [ VeritasHoneyGinger new run ]
-]
-
 { #category : 'api - profiler' }
 Bencher >> useMethodCounterProfiler [
 
