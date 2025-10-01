@@ -6,7 +6,7 @@ PHARO_CMD="$BASE_DIR/pharo"
 # Functions
 install_instrumentation() {
   local image_path="$1"
-  "$PHARO_CMD" --headless "$image_path" metacello install "github://jordanmontt/pharo-instrumentation:journal-version" BaselineOfInstrumentationProfilers
+  "$PHARO_CMD" --headless "$image_path" metacello install "github://jordanmontt/method-proxies-experiments:main" InstrumentationProfilers
 
   echo; echo; echo
   echo "Installed instrumentation for image $image_path"
@@ -37,6 +37,7 @@ setup_base_image() {
 # Download baseimage
 setup_base_image
 
+
 ############
 # Cormas
 mkdir -p cormas
@@ -47,19 +48,26 @@ cp "$BASE_DIR"/*.sources ./cormas/
 
 # install dependencies
 install_instrumentation ./cormas/cormas.image
-install_veritas_for ./cormas/cormas.image BaselineOfVeritasCormas
+install_veritas_for ./cormas/cormas.image VeritasCormas
+
 
 ############
-# HoneyGinger
-mkdir -p hg
+# Moose
+mkdir -p moose
 
 # save image and copy sources file
-"$PHARO_CMD" --headless "$BASE_IMAGE_FILE" save ../hg/hg
-cp "$BASE_DIR"/*.sources ./hg/
+"$PHARO_CMD" --headless "$BASE_IMAGE_FILE" save ../moose/moose
+cp "$BASE_DIR"/*.sources ./moose/
 
 # install dependencies
-install_instrumentation ./hg/hg.image
-install_veritas_for ./hg/hg.image BaselineOfVeritasHoneyGinger
+install_instrumentation ./moose/moose.image
+install_veritas_for ./moose/moose.image VeritasMoose
+
+# move tiny_dataset.csv to the root of df/
+mv ./moose/pharo-local/iceberg/jordanmontt/PharoVeritasBenchSuite/files/sbscl.json ./moose/
+echo; echo; echo
+echo "moose model copied"
+
 
 ############
 # Microdown
@@ -71,7 +79,7 @@ cp "$BASE_DIR"/*.sources ./micro/
 
 # install dependencies
 install_instrumentation ./micro/micro.image
-install_veritas_for ./micro/micro.image BaselineOfVeritasMicrodown
+install_veritas_for ./micro/micro.image VeritasMicrodown
 
 # download Spec2 book
 TMP_CLONE_DIR=$(mktemp -d)
@@ -91,10 +99,10 @@ cp "$BASE_DIR"/*.sources ./df/
 
 # install dependencies
 install_instrumentation ./df/df.image
-install_veritas_for ./df/df.image BaselineOfVeritasDataFrame
+install_veritas_for ./df/df.image VeritasDataFrame
 
 # move tiny_dataset.csv to the root of df/
-mv ./df/pharo-local/iceberg/jordanmontt/PharoVeritasBenchSuite/src/Veritas-DataFrame/tiny_dataset.csv ./df/
+mv ./df/pharo-local/iceberg/jordanmontt/PharoVeritasBenchSuite/files/tiny_dataset.csv ./df/
 echo; echo; echo
 echo "dataset copied"
 
