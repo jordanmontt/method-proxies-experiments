@@ -1,6 +1,6 @@
 Extension { #name : 'CompiledMethod' }
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 CompiledMethod >> nameForProfiler [
 
 	^ (self methodClass name , '>>#' , self selector) surroundedBySingleQuotes

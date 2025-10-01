@@ -1,12 +1,12 @@
 Extension { #name : 'IllInstrumentator' }
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 IllInstrumentator >> installNoSafe [
 
 	self proxyVariables do: #installNoSafe
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 IllInstrumentator >> instrumentNoSafe [
 
 	self installNoSafe.

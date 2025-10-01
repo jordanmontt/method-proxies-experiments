@@ -1,12 +1,12 @@
 Extension { #name : 'MethodCounterProfiler' }
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MethodCounterProfiler >> instrumentNoSafe [
 
 	instrumentator instrumentNoSafe
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MethodCounterProfiler >> startProfilingNoSafe [
 
 	self instrumentNoSafe

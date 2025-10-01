@@ -4,8 +4,8 @@ Class {
 	#instVars : [
 		'bencher'
 	],
-	#category : 'InstrumentationProfilers-Bench-New-Benchmarks',
-	#package : 'InstrumentationProfilers-Bench',
+	#category : 'MpPerfEx-Bencher-New-Benchmarks',
+	#package : 'MpPerfEx-Bencher',
 	#tag : 'New-Benchmarks'
 }
 

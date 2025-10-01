@@ -5,8 +5,8 @@ Class {
 		'methodProxies',
 		'profiler'
 	],
-	#category : 'InstrumentationProfilers-RWI',
-	#package : 'InstrumentationProfilers',
+	#category : 'MpPerfEx-InstrumentationProfilers-RWI',
+	#package : 'MpPerfEx-InstrumentationProfilers',
 	#tag : 'RWI'
 }
 

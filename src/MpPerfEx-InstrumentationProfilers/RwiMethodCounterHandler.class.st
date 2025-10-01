@@ -5,8 +5,8 @@ Class {
 		'profiler',
 		'method'
 	],
-	#category : 'InstrumentationProfilers-RWI-Handlers',
-	#package : 'InstrumentationProfilers',
+	#category : 'MpPerfEx-InstrumentationProfilers-RWI-Handlers',
+	#package : 'MpPerfEx-InstrumentationProfilers',
 	#tag : 'RWI-Handlers'
 }
 

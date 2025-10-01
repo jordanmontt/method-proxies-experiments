@@ -1,6 +1,6 @@
 Extension { #name : 'MpMethodProxy' }
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> buildNoSafePrototypesUpToArguments: maxNumberOfArguments [
 	"This method builds/compiles the prototype traps for arguments up to the argument.
 	The trap prototypes are installed in this class' class side.
@@ -33,7 +33,7 @@ MpMethodProxy class >> buildNoSafePrototypesUpToArguments: maxNumberOfArguments 
 		self class compile: originalAst formattedCode ]
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy >> installNoSafe [
 
 	| newTrap index trapSelector |
@@ -76,7 +76,7 @@ MpMethodProxy >> installNoSafe [
 		trapMethod := newTrap ]
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy >> noSafePrototypeTrapMethod [
 
 	^ self class class methods detect: [ :m |
@@ -84,7 +84,7 @@ MpMethodProxy >> noSafePrototypeTrapMethod [
 			  m selector beginsWith: 'trapNoSafe' ] ]
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> prototypeNoSafeTrap [
 
     <trap>
@@ -95,7 +95,7 @@ MpMethodProxy class >> prototypeNoSafeTrap [
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethod [
 
     <trap>
@@ -106,7 +106,7 @@ MpMethodProxy class >> trapNoSafeMethod [
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 [
 
     <trap>
@@ -117,7 +117,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 [
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 [
 
     <trap>
@@ -128,7 +128,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 [
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 [
 
     <trap>
@@ -139,7 +139,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 [
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 [
 
     <trap>
@@ -153,7 +153,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 [
 
     <trap>
@@ -168,7 +168,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 [
 
     <trap>
@@ -184,7 +184,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 with: arg7 [
 
     <trap>
@@ -201,7 +201,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 with: arg7 with: arg8 [
 
     <trap>
@@ -219,7 +219,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 with: arg7 with: arg8 with: arg9 [
 
     <trap>
@@ -238,7 +238,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 with: arg7 with: arg8 with: arg9 with: arg10 [
 
     <trap>
@@ -258,7 +258,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 with: arg7 with: arg8 with: arg9 with: arg10 with: arg11 [
 
     <trap>
@@ -279,7 +279,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 with: arg7 with: arg8 with: arg9 with: arg10 with: arg11 with: arg12 [
 
     <trap>
@@ -301,7 +301,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 with: arg7 with: arg8 with: arg9 with: arg10 with: arg11 with: arg12 with: arg13 [
 
     <trap>
@@ -324,7 +324,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 with: arg7 with: arg8 with: arg9 with: arg10 with: arg11 with: arg12 with: arg13 with: arg14 [
 
     <trap>
@@ -348,7 +348,7 @@ MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: ar
     ^ result
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethodwith: arg1 with: arg2 with: arg3 with: arg4 with: arg5 with: arg6 with: arg7 with: arg8 with: arg9 with: arg10 with: arg11 with: arg12 with: arg13 with: arg14 with: arg15 [
 
     <trap>

@@ -1,8 +1,8 @@
 Class {
 	#name : 'AClassToInstrumentCopy',
 	#superclass : 'Object',
-	#category : 'InstrumentationProfilers-Tests-SourceCodeModificator',
-	#package : 'InstrumentationProfilers-Tests',
+	#category : 'MpPerfEx-Tests-SourceCodeModificator',
+	#package : 'MpPerfEx-Tests',
 	#tag : 'SourceCodeModificator'
 }
 

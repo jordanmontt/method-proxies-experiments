@@ -7,8 +7,8 @@ Class {
 		'mpProfiler',
 		'rwiProfiler'
 	],
-	#category : 'InstrumentationProfilers-Tests-CallGraph',
-	#package : 'InstrumentationProfilers-Tests',
+	#category : 'MpPerfEx-Tests-CallGraph',
+	#package : 'MpPerfEx-Tests',
 	#tag : 'CallGraph'
 }
 

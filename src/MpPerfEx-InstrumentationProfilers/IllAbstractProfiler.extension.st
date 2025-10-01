@@ -1,12 +1,12 @@
 Extension { #name : 'IllAbstractProfiler' }
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 IllAbstractProfiler >> instrumentNoSafe [
 
 	instrumentator instrumentNoSafe
 ]
 
-{ #category : '*InstrumentationProfilers' }
+{ #category : '*MpPerfEx-InstrumentationProfilers' }
 IllAbstractProfiler >> startProfilingNoSafe [
 
 	self initializeVMStats.

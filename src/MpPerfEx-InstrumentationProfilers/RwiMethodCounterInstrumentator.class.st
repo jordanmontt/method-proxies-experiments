@@ -1,8 +1,8 @@
 Class {
 	#name : 'RwiMethodCounterInstrumentator',
 	#superclass : 'RwiInstrumentator',
-	#category : 'InstrumentationProfilers-RWI',
-	#package : 'InstrumentationProfilers',
+	#category : 'MpPerfEx-InstrumentationProfilers-RWI',
+	#package : 'MpPerfEx-InstrumentationProfilers',
 	#tag : 'RWI'
 }
 

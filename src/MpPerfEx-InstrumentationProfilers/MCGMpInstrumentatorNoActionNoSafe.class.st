@@ -1,8 +1,8 @@
 Class {
 	#name : 'MCGMpInstrumentatorNoActionNoSafe',
 	#superclass : 'MCGMpInstrumentatorNoAction',
-	#category : 'InstrumentationProfilers-NoSafe',
-	#package : 'InstrumentationProfilers',
+	#category : 'MpPerfEx-InstrumentationProfilers-NoSafe',
+	#package : 'MpPerfEx-InstrumentationProfilers',
 	#tag : 'NoSafe'
 }
 
