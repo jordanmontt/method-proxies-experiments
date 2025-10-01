@@ -17,7 +17,7 @@ RwiIllProfilerInstrumentator >> initialize [
             (Behavior >> #basicNewPinned:).
             (Behavior >> #basicNewTenured).
             (Behavior >> #basicNewTenured:).
-            (Array class >> #new:).
+            (Array class lookupSelector: #new:).
             (Interval class >> #new).
             (Number >> #@).
             (Object >> #shallowCopy).
