@@ -21,7 +21,7 @@ BaselineOfMpPerformanceExperiment >> baseline: spec [
 		spec baseline: 'VeritasBenchSuite' with: [ spec repository: 'github://jordanmontt/PharoVeritasBenchSuite:main' ].
 		spec baseline: 'MessageGatekeeper' with: [ spec repository: 'github://jordanmontt/MessageGatekeeper:main' ].
 		spec
-			package: 'InstrumentationProfilers' with: [ 
+			package: 'MpPerfEx-InstrumentationProfilers' with: [ 
 				spec requires: #( 'IllimaniProfiler' 'MethodProxies' 'MethodCallGraph' 'VeritasBenchSuite' 'MessageGatekeeper') ].
 
 		spec
