@@ -96,14 +96,6 @@ MpMethodProxy class >> prototypeNoSafeTrap [
 ]
 
 { #category : '*InstrumentationProfilers' }
-MpMethodProxy >> prototypeTrapMethod [
-
-	^ self class class methods detect: [ :m |
-		  m numArgs = proxifiedMethod numArgs and: [
-			  m selector beginsWith: 'trapMethod' ] ]
-]
-
-{ #category : '*InstrumentationProfilers' }
 MpMethodProxy class >> trapNoSafeMethod [
 
     <trap>
