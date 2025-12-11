@@ -64,15 +64,15 @@ Execution: load a synthetic 20k×6 numeric dataset (2.3 MB)
 
 - **[Microdown](https://github.com/pillar-markup/Microdown)**  
 Execution: parse & generate the full *Spec* book (~252 pages)  
-~2,062 methods
+2,062 methods
 
 - **[Cormas](https://github.com/cormas/cormas)**  
 Execution: run the ECEC agent-based simulation  
-~2,135 methods
+2,135 methods
 
 - **[Moose](https://github.com/moosetechnology/Moose)**  
 Execution: load the [SBSCL](https://github.com/draeger-lab/SBSCL) Java project into Moose  
-~11,009 methods
+11,009 methods
 
 ## Executing the benchmarks
 
