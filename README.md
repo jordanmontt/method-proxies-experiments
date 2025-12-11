@@ -1,7 +1,6 @@
 # MethodProxies Performance & Safety Experiments
 
-This repository contains the full implementation of the experimental methodology used in the MethodProxies paper.  
-It includes all code and artifacts needed to reproduce the performance, meta-safety, and JIT-integration experiments.
+This repository contains the full implementation of the experimental methodology used in the MethodProxies paper. It includes all code and artifacts needed to reproduce the performance, meta-safety, and JIT-integration experiments.
 
 A **benchmark** = running one profiler on one application using one instrumentation technique.
 
@@ -75,7 +74,6 @@ Execution: run the ECEC agent-based simulation
 Execution: load the [SBSCL](https://github.com/draeger-lab/SBSCL) Java project into Moose  
 ~11,009 methods
 
-
 ## Executing the benchmarks
 
 Two objects execute benchmarks:
@@ -87,20 +85,29 @@ Those are objects in charge of executing the benchamark with the three different
 
 Order matters:
 
-1. Select benchmark
-2. Select profiler
-3. Execute
+1. Select bencher (`BencherMp` or `BencherRwi`)
+2. Select application (`useCormasBench`, `useDataFrameBench`, `useMicrodownBench`, `useMooseBench`)
+3. Select profiler (`useAllocationRateProfiler`, `useMethodCounterProfiler`, `useNoActionAllocatorMethodsProfiler`, `useNoActionAllMethodsProfiler`)
+4. Execute
+
+
+## Available measurements methods
+
+- `benchExecuteProfiler` -- instrument + execute + uninstrument
+- `benchExecution` -- execution only
+- `benchInstrument` -- instrument only
+- `benchUninstrument` -- uninstrument only
+
 
 ### Example: Microdown + MethodProxies + allocation rate profiler
 
 ```st
-bencher := BencherMp new
+bencher := BencherRwi new
 	useMicrodownBench;
 	useAllocationRateProfiler;
 	yourself.
 
 bencher benchExecuteProfiler.
-bencher
 ```
 
 ### Example: Cormas benchmark + MethodProxies + method counter profiler
@@ -112,32 +119,4 @@ bencher := BencherMp new
 	yourself.
 
 bencher benchExecuteProfiler.
-bencher
 ```
-
-## Available benchmarks
-
-- Cormas (`useCormasBench`)
-- DataFrame (`useDataFrameBench`)
-- Microdown (`useMicrodownBench`)
-- Moose (`useMooseBench`)
-
-## Available analysis tools (profilers)
-
-- Allocation rate profiler (`useAllocationRateProfiler`)
-- Method counter (`useMethodCounterProfiler`)
-- No-action allocation (`useNoActionAllocatorMethodsProfiler`)
-- No-action method(`useNoActionAllMethodsProfiler`)
-
-## Available instrumentation techniques
-
-- MethodProxies (`BencherMp`)
-- `#run:with:in:` hook (`BencherRwi`)
-
-## Available measurements methods
-
-- `benchExecuteProfiler` -- instrument + execute + uninstrument
-- `benchExecution` -- execution only
-- `benchInstrument` -- instrument only
-- `benchUninstrument` -- uninstrument only
-
