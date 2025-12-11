@@ -1,11 +1,32 @@
-# MethodProxies Performance and Safety Experiments
+# MethodProxies Performance & Safety Experiments
 
+This repository contains the full implementation of the experimental methodology used in the MethodProxies paper.  
+It includes all code and artifacts needed to reproduce the performance, meta-safety, and JIT-integration experiments.
 
-Instrumentation profilers built with different instrumentation techniques for Pharo
+A **benchmark** = running one profiler on one application using one instrumentation technique.
 
-This repository contains the code for executing the experiments for the journal paper of MethodProxies. The experiments are designed to evaluate MethodProxies's performance and safety.
+We run:
 
-To install it, run the following script in a Pharo 14 image:
+- 16 benchmarks using MethodProxies  
+- 16 using the `run:with:in:` (object-as-method) technique  
+- 16 using MethodProxies **without** meta-safety checks  
+
+**48 total benchmarks**
+
+---
+
+# 🔹 TL;DR
+
+- Install with **one Metacello script**  
+- Four applications × four profilers × three instrumentation modes  
+- Run benchmarks using `BencherMp` (MethodProxies) or `BencherRwi` (run:with:in:)  
+- This repo contains everything to **fully reproduce all paper results**
+
+---
+
+# Quick Installation
+
+In a Pharo 14 image:
 
 ```st
 EpMonitor disableDuring: [
@@ -15,72 +36,108 @@ EpMonitor disableDuring: [
 		load ].
 ```
 
-```bash
-nohup bash runRebenchFiles.sh > log.log 2>&1 &
+## Dependencies
 
-|repo| repo := IceRepository registry detect: [ :each | each name = 'method-proxies-experiments' ]. [ repo pull ] on: IceExperimentalFeature do: [ :ex | ex resume ]. repo loadedPackages do: [ :pkg | [ pkg reload ] on: MCMergeOrLoadWarning do: [ :ex | ex load]. ]. Smalltalk snapshot: true andQuit: true
-```
+This Repository brings several dependencies
+
+- [IllimaniProfiler](https://github.com/jordanmontt/illimani-memory-profiler) — memory profiling framework
+- [MethodProxies](https://github.com/pharo-contributions/MethodProxies/) — main instrumentation system under study
+- [MethodCallGraph](https://github.com/jordanmontt/MethodCallGraph/) — includes the method invocation profiler
+- [VeritasBenchSuite](https://github.com/jordanmontt/PharoVeritasBenchSuite) — benchmark applications
+- [MessageGatekeeper](https://github.com/jordanmontt/MessageGatekeeper) — alternative instrumentation using `run:with:in:`
+
+## Profilers 
+
+This repository provides four profilers:
+
+- Allocation Rate — counts allocations + total size
+- No-Action Allocation — instrumentation cost for allocation profilers
+- Method Invocation Counter — counts method executions
+- No-Action Methods — instrumentation cost for method profilers
+
+## Applications
+
+We use four real-world applications from Veritas:
+
+- **[DataFrame](https://github.com/PolyMathOrg/DataFrame)**  
+Execution: load a synthetic 20k×6 numeric dataset (2.3 MB)  
+617 methods
+
+- **[Microdown](https://github.com/pillar-markup/Microdown)**  
+Execution: parse & generate the full *Spec* book (~252 pages)  
+~2,062 methods
+
+- **[Cormas](https://github.com/cormas/cormas)**  
+Execution: run the ECEC agent-based simulation  
+~2,135 methods
+
+- **[Moose](https://github.com/moosetechnology/Moose)**  
+Execution: load the [SBSCL](https://github.com/draeger-lab/SBSCL) Java project into Moose  
+~11,009 methods
 
 
 ## Executing the benchmarks
 
-There are three objects
+Two objects execute benchmarks:
+
 - `BencherMp` for MethodProxies
-- `BenchRwi` for run:with:in
-- `BenchSourceCode` for the source code modification.
+- `BenchRwi` for `run:with:in:` (object-as-method / MessageGatekeeper)
 
 Those are objects in charge of executing the benchamark with the three different instrumentation techniques. They understand the same API.
 
-For example, if you want to execute the Microdown benchmark using the source code modification technique with the method coverage profiler, you will need to run:
+Order matters:
 
-```st
-bencher := BencherSourceCode new
-	useMicrodownBench;
-	useMethodCoverageProfiler;
-	yourself.
+1. Select benchmark
+2. Select profiler
+3. Execute
 
-bencher benchExecuteProfiler.
-bencher
-```
-
-The order of the messages is important. First, initialize the benchmark, then the profiler.
-
-If you want to run the AST bench using the MethodProxies technique with the call graph profiler, you will need to do:
+### Example: Microdown + MethodProxies + allocation rate profiler
 
 ```st
 bencher := BencherMp new
-	useASTBench;
-	useCallGraphProfiler;
+	useMicrodownBench;
+	useAllocationRateProfiler;
 	yourself.
 
 bencher benchExecuteProfiler.
 bencher
 ```
 
-Below you will find an extensive list with all the benchmarks, analysis tools, and instrumentation techniques and how to use them.
+### Example: Cormas benchmark + MethodProxies + method counter profiler
+
+```st
+bencher := BencherMp new
+	useCormasBench;
+	useMethodCounterProfiler;
+	yourself.
+
+bencher benchExecuteProfiler.
+bencher
+```
 
 ## Available benchmarks
 
-- AST (`useASTBench`)
-- Fily system (`useCompressionBench`)
-- Microdown (`useFileSystemBench`)
-- Compression (`useMicrodownBench`)
+- Cormas (`useCormasBench`)
+- DataFrame (`useDataFrameBench`)
+- Microdown (`useMicrodownBench`)
+- Moose (`useMooseBench`)
 
 ## Available analysis tools (profilers)
 
-- Method coverage (`useMethodCoverageProfiler`)
-- Call graph (`useCallGraphProfiler`)
-- No-action (`useNoActionProfiler`)
+- Allocation rate profiler (`useAllocationRateProfiler`)
+- Method counter (`useMethodCounterProfiler`)
+- No-action allocation (`useNoActionAllocatorMethodsProfiler`)
+- No-action method(`useNoActionAllMethodsProfiler`)
 
 ## Available instrumentation techniques
 
 - MethodProxies (`BencherMp`)
-- `#run:with:in:` method hook (`BencherRwi`)
-- Source code modification (`BencherSourceCode`)
+- `#run:with:in:` hook (`BencherRwi`)
 
 ## Available measurements methods
 
-- `benchExecuteProfiler` It returns the time that it takes to instrument, execute, and uninstrument. The three things together.
-- `benchExecution` It returns the time that it takes to execute the bench with the instrumentation. It does not take into account the time for instumenting nor uninstrumenting.
-- `benchInstrument` It returns the time that it takes to only instrument the method.
-- `benchUninstrument` It returns the time that it takes to only uninstrument the method.
+- `benchExecuteProfiler` -- instrument + execute + uninstrument
+- `benchExecution` -- execution only
+- `benchInstrument` -- instrument only
+- `benchUninstrument` -- uninstrument only
+
