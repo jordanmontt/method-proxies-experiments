@@ -39,20 +39,20 @@ EpMonitor disableDuring: [
 
 This Repository brings several dependencies
 
-- [IllimaniProfiler](https://github.com/jordanmontt/illimani-memory-profiler) — memory profiling framework
-- [MethodProxies](https://github.com/pharo-contributions/MethodProxies/) — main instrumentation system under study
-- [MethodCallGraph](https://github.com/jordanmontt/MethodCallGraph/) — includes the method invocation profiler
-- [VeritasBenchSuite](https://github.com/jordanmontt/PharoVeritasBenchSuite) — benchmark applications
-- [MessageGatekeeper](https://github.com/jordanmontt/MessageGatekeeper) — alternative instrumentation using `run:with:in:`
+- [IllimaniProfiler](https://github.com/jordanmontt/illimani-memory-profiler) -- memory profiling framework
+- [MethodProxies](https://github.com/pharo-contributions/MethodProxies/) -- main instrumentation system under study
+- [MethodCallGraph](https://github.com/jordanmontt/MethodCallGraph/) -- includes the method invocation profiler
+- [VeritasBenchSuite](https://github.com/jordanmontt/PharoVeritasBenchSuite) -- benchmark applications
+- [MessageGatekeeper](https://github.com/jordanmontt/MessageGatekeeper) -- alternative instrumentation using `run:with:in:`
 
 ## Profilers 
 
 This repository provides four profilers:
 
-- Allocation Rate — counts allocations + total size
-- No-Action Allocation — instrumentation cost for allocation profilers
-- Method Invocation Counter — counts method executions
-- No-Action Methods — instrumentation cost for method profilers
+- Allocation Rate -- counts allocations + total size
+- No-Action Allocation -- instrumentation cost for allocation profilers
+- Method Invocation Counter -- counts method executions
+- No-Action Methods -- instrumentation cost for method profilers
 
 ## Applications
 
